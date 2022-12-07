@@ -1,6 +1,6 @@
 // App
 
-FILE = "annoy.settings.json";
+FILE = "annoy.json";
 settings = require("Storage").readJSON(FILE, true);
 
 if (settings.act) {
