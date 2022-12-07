@@ -1,0 +1,8 @@
+{"id":"annoy",
+"name":"Annoyer",
+"src":"annoy.app.js",
+"icon":"annoy.img",
+"version":"0.1",
+"tags":"tool,widget",
+"files":"annoy.info,annoy.app.js,annoy.img,annoy.wid.js,annoy.settings.js,annoy.settings.json"
+}
