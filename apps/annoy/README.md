@@ -1,10 +1,10 @@
 # Annoying Reminder
 
-This simple app helps you to not forget stuff or tasks. It buzzes every few minutes (configurable) until deactivated. If ignored, it will just keep buzzing every x minutes.
+This simple app helps you to not forget stuff or tasks. It buzzes every few minutes (configurable) until deactivated. If ignored, it will just keep buzzing every x minutes. A widget is also shown when the app is active.
 
 It can be activated either manually or daily at a certain time.
 
-Manually starting/stopping the reminder is done by executing the app. While this is possible from the launcher, it is recommended to use a simpler way such as a swipe launcher or similar so it can be done quickly and without needing to look at the device.
+Manually starting/stopping the reminder is done by executing the app. While this is possible from the launcher, it is recommended to use a simpler way such as a swipe launcher or similar so it can be done quickly and without needing to look at the device. 3 shor buzzes mean the app is active and 1 long buzz inactive.
 
 Use cases:
 - Starts to annoy you every morning at 9 during the week and 11 at weekends to take medication. Much less intrusive than a mobile phone or similar devices.
