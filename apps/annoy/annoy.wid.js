@@ -4,10 +4,12 @@
   FILE = "annoy.json";
   REFRESHPERIOD = 1 * 1000; // check every second for debug, change so 30 or 60 seconds for prod
 
-  function draw() {}
-
+  function draw() {
+    g.drawImage(atob("GBiEAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAjIAAAAAAAAAAAADMzM7AAAAAAAAAAAj/yO/AAAAAAAAAAACIz8iAAAAAAAAAAAAA78AAAAAAAAAAAAAA78iAAHAAAAAAAAAI78z8jICAAAAAAAAIz878z8z8AAAAAAAIz878z8z8AAAAAAAI7+7+7+78AAAAAADM7//////8AAAAAAz87//////8AAAAAI/87//////8AAAAAM/87//////8AAAAAI/////////8AAAAAAz////////8AAAAAADP///////8AAAAAAAM///////8AAAAAAAAz//////oAAAAAAAACMzMzMyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="),this.x, this.y);
+  }
+  
   function checkAnnoy() {
-    defaults = {
+    settings = {
       act: true,
       lsd: -1,
       nxt: 0,
@@ -50,5 +52,14 @@
     require("Storage").writeJSON(FILE, settings);
   }
   setInterval(checkAnnoy, REFRESHPERIOD);
+  
+  settings = require("Storage").readJSON(FILE, true);
+  if (settings.act) {
+    WIDGETS["annoy"] = {
+      area: "tl",
+      width: 24,
+      draw: draw
+    };
+  }
 })();
 Bangle.drawWidgets();
