@@ -48,7 +48,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       // format: v => v ? "Active" : "Inactive",
     },
     "Interval": {
-      value: 7 | settings.itv,
+      value: settings.itv,
       min: 1,
       max: 30,
       onchange: v => {
@@ -58,7 +58,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       format: v => v + "min",
     },
     "Add Randomness": {
-      value: 7 | settings.itr,
+      value: settings.itr,
       min: 0,
       max: 30,
       onchange: v => {
@@ -68,7 +68,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       format: v => v + "min",
     },
     "Weekday Start Hour": {
-      value: 7 | settings.wds,
+      value: settings.wds,
       min: 0,
       max: 23,
       onchange: v => {
@@ -78,7 +78,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       format: v => v + "h",
     },
     "Weekend Start Hour": {
-      value: 7 | settings.wes,
+      value: settings.wes,
       min: 0,
       max: 23,
       onchange: v => {
@@ -88,7 +88,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       format: v => v + "h",
     },
     "Follow DND": {
-      value: 0 | settings.dnd,
+      value: settings.dnd,
       min: 0,
       max: 2,
       format: v => dndChoices[v],
