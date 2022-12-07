@@ -23,7 +23,8 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       itr: 8,
       wds: 9,
       wes: 13,
-      dnd: 0
+      dnd: 0,
+      buz: "::",
     },
     require("Storage").readJSON(FILE, true) || {});
 
