@@ -15,7 +15,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
 
 */
 (function(back) {
-  var FILE = "annoy.settings.json";
+  var FILE = "annoy.json";
   var dndChoices = ["Always", "Alarm", "Never"];
   var settings = Object.assign({
       // Default values
