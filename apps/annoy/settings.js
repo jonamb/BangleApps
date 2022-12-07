@@ -7,12 +7,11 @@ intvRnd (IntervalRandom: ammount of ms added to interval randomly, set 0 for fix
 wds (WeekdayStart: At which time should the automatic annoy start Mo-Fr)
 wes (WeekendStart:At which time should the automatic annoy start Sa-Su)
 dnd (DoNotDisturb: 0: never during quiet mode, 1: if quiet/alarm mode, 2: always buzz)
-
+buz (Buzz pattern from buzz_menu)
 Variables:
 act (Active: should you annoy)
 lsd (LastStartDay: Last day of the month annoy was activated to not activate twice per day)
 nxt (Next: Timestamp (in seconds) when to next annoy)
-
 */
 (function(back) {
   var FILE = "annoy.json";
@@ -37,16 +36,6 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       "title": "Annoy"
     },
     "< Back": () => back(),
-    "Active": {
-      value: !!settings.act,
-      min: 0,
-      max: 1,
-      onchange: v => {
-        settings.act = v;
-        writeSettings();
-      },
-      // format: v => v ? "Active" : "Inactive",
-    },
     "Interval": {
       value: settings.itv,
       min: 1,
@@ -67,6 +56,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       },
       format: v => v + "min",
     },
+    "Buzz": require("buzz_menu").pattern(settings.buz, v => settings.buz=v ),
     "Weekday Start Hour": {
       value: settings.wds,
       min: 0,
@@ -94,6 +84,15 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
       format: v => dndChoices[v],
       onchange: v => {
         settings.dnd = v;
+        writeSettings();
+      }
+    },
+    "Active": {
+      value: !!settings.act,
+      min: 0,
+      max: 1,
+      onchange: v => {
+        settings.act = v;
         writeSettings();
       },
     },
