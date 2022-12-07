@@ -7,6 +7,7 @@
    "description":"This is a simple app to remind you of recurring or unique tasks. When active, it will emit a short buzz every few minutes until switched off. Executing the app toggles the reminder on (three bzzes) and off (one long buzz).",
    "type":"app",
    "tags":"tool",
+   "supports":["BANGLEJS2"],
    "storage":[
       {"name":"annoy.app.js","url":"app.js"},
       {"name":"annoy.wid.js","url":"wid.js"},
