@@ -6,7 +6,7 @@
   "icon": "arrow.png",
   "type": "app",
   "tags": "tool,outdoors",
-  "supports": ["BANGLEJS"],
+  "supports": ["BANGLEJS", "BANGLEJS2"],
   "readme": "README.md",
   "storage": [
     {"name":"arrow.app.js","url":"app.js"},
