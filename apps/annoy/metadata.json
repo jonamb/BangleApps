@@ -12,7 +12,7 @@
       {"name":"annoy.app.js","url":"app.js"},
       {"name":"annoy.wid.js","url":"wid.js"},
       {"name":"annoy.settings.js","url":"settings.js"},
-      {"name":"annoy.img","url":"app.img"}
+      {"name":"annoy.img","url":"app-icon.js","evaluate":true}
    ],
    "data":[
       {"name":"annoy.json"}
