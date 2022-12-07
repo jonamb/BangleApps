@@ -31,7 +31,8 @@
       isWeekend = (date.getDate() == 0 || date.getDate() == 6);
       startHour = isWeekend ? settings.wes : settings.wds;
 
-      if (date.getHours() >= startHour) {
+      // If starthour is negative (shown as "Off" in settings) don't start.
+      if (date.getHours() >= startHour || startHour >=0) {
         settings.act = true;
         settings.lsd = date.getDate();
       }
