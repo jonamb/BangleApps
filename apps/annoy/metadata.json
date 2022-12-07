@@ -1,1 +1,20 @@
-
+{
+   "id":"annoy",
+   "name":"Annoy Reminder",
+   "shortName":"Annoy",
+   "icon":"app.png",
+   "version":"0.01",
+   "description":"This is a simple app to remind you of recurring or unique tasks. When active, it will emit a short buzz every few minutes until switched off. Executing the app toggles the reminder on (three bzzes) and off (one long buzz).",
+   "type":"app",
+   "tags":"tool",
+   "storage":[
+      {"name":"annoy.app.js","url":"app.js"},
+      {"name":"annoy.wid.js","url":"wid.js"},
+      {"name":"annoy.settings.js","url":"settings.js"},
+      {"name":"annoy.img","url":"app.img"}
+   ],
+   "data":[
+      {"name":"annoy.json"}
+   ],
+   "readme":"README.md"
+}
