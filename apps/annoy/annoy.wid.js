@@ -1,7 +1,7 @@
 // Widget
 
 (() => {
-  FILE = "annoy.settings.json";
+  FILE = "annoy.json";
   REFRESHPERIOD = 1 * 1000; // check every second for debug, change so 30 or 60 seconds for prod
 
   function draw() {}
