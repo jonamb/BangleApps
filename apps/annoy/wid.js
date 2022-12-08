@@ -10,7 +10,7 @@
 
   function checkAnnoy() {
     annset = {
-      act: true,
+      act: false,
       lsd: -1,
       nxt: 0,
       itv: 7,
