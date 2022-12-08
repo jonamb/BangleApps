@@ -2,7 +2,7 @@
 
 (() => {
   FILE = "annoy.json";
-  REFRESHPERIOD = 1 * 1000; // check every second for debug, change so 30 or 60 seconds for prod
+  REFRESHPERIOD = 1 * 5000; // check every second for debug, change so 30 or 60 seconds for prod
 
   function draw() {
     g.drawImage(atob("GBiEAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAjIAAAAAAAAAAAADMzM7AAAAAAAAAAAj/yO/AAAAAAAAAAACIz8iAAAAAAAAAAAAA78AAAAAAAAAAAAAA78iAAHAAAAAAAAAI78z8jICAAAAAAAAIz878z8z8AAAAAAAIz878z8z8AAAAAAAI7+7+7+78AAAAAADM7//////8AAAAAAz87//////8AAAAAI/87//////8AAAAAM/87//////8AAAAAI/////////8AAAAAAz////////8AAAAAADP///////8AAAAAAAM///////8AAAAAAAAz//////oAAAAAAAACMzMzMyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="), this.x, this.y);
@@ -15,8 +15,8 @@
       nxt: 0,
       itv: 7,
       itr: 8,
-      wds: 9,
-      wes: 13,
+      wds: -1,
+      wes: -1,
       dnd: 0,
       buz: ",,,"
     };
