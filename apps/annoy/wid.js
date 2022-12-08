@@ -15,8 +15,8 @@
       nxt: 0,
       itv: 7,
       itr: 8,
-      wds: 9,
-      wes: 13,
+      wds: -1,
+      wes: -1,
       dnd: 0,
       buz: ",,,"
     };
