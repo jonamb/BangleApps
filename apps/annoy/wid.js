@@ -15,8 +15,8 @@
       nxt: 0,
       itv: 7,
       itr: 8,
-      wds: -1,
-      wes: -1,
+      wds: 9,
+      wes: 13,
       dnd: 0,
       buz: ",,,"
     };
@@ -32,10 +32,13 @@
       isWeekend = (date.getDate() == 0 || date.getDate() == 6);
       startHour = isWeekend ? annset.wes : annset.wds;
 
-      // If starthour is negative (shown as "Off" in annset) don't start.
-      if (date.getHours() >= startHour || startHour >= 0) {
-        annset.act = true;
+      // Is it past the starting hour?
+      if (date.getHours() >= startHour) {
         annset.lsd = date.getDate();
+        // If startHour is -1 meaning off, do not activate annoying but still set the last checked date to today
+        if (startHour >= 0) {
+          annset.act = true;
+        }
       }
     }
 
