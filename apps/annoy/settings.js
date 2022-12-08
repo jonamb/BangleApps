@@ -1,12 +1,12 @@
-// Settings Page
+// annset Page
 
 /*
-Settings:
+annset:
 intv (Interfal: interval between buzzes in ms)
 intvRnd (IntervalRandom: ammount of ms added to interval randomly, set 0 for fixed)
 wds (WeekdayStart: At which time should the automatic annoy start Mo-Fr)
 wes (WeekendStart:At which time should the automatic annoy start Sa-Su)
-dnd (DoNotDisturb: 0: never during quiet mode, 1: if quiet/alarm mode, 2: always buzz)
+dnd (DoNotDisturb: 0: never during quiet mode, 1: if quiet/alarm mode, 2: always buzz, mode inannset: Quiet: 2, Alarms: 1, Normal: 0)
 buz (Buzz pattern from buzz_menu)
 Variables:
 act (Active: should you annoy)
@@ -16,7 +16,7 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
 (function(back) {
   var FILE = "annoy.json";
   var dndChoices = ["Always", "Alarm", "Never"];
-  var settings = Object.assign({
+  var annset = Object.assign({
       // Default values
       act: false,
       itv: 7,
@@ -28,8 +28,8 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
     },
     require("Storage").readJSON(FILE, true) || {});
 
-  function writeSettings() {
-    require("Storage").writeJSON(FILE, settings);
+  function writeannset() {
+    require("Storage").writeJSON(FILE, annset);
   }
 
   E.showMenu({
@@ -38,63 +38,69 @@ nxt (Next: Timestamp (in seconds) when to next annoy)
     },
     "< Back": () => back(),
     "Interval": {
-      value: settings.itv,
+      value: annset.itv,
       min: 1,
       max: 30,
       onchange: v => {
-        settings.itv = v;
-        writeSettings();
+        annset.itv = v;
+        writeannset();
       },
       format: v => v + "min",
     },
     "Add Randomness": {
-      value: settings.itr,
+      value: annset.itr,
       min: 0,
       max: 30,
       onchange: v => {
-        settings.itr = v;
-        writeSettings();
+        annset.itr = v;
+        writeannset();
       },
       format: v => v + "min",
     },
-    "Buzz": require("buzz_menu").pattern(settings.buz, v => settings.buz=v ),
+    "Buzz": require("buzz_menu").pattern(annset.buz, v => {
+      annset.buz = v;
+      writeannset();
+    }),
     "Weekday Start Hour": {
-      value: settings.wds,
-      min: 0,
+      value: annset.wds,
+      min: -1,
       max: 23,
+      wrap: true,
       onchange: v => {
-        settings.wds = v;
-        writeSettings();
+
+        annset.wds = v;
+        writeannset();
       },
-      format: v => v + "h",
+      format: v => v >= 0 ? v + "h" : "Off",
     },
     "Weekend Start Hour": {
-      value: settings.wes,
-      min: 0,
+      value: annset.wes,
+      min: -1,
       max: 23,
+      wrap: true,
       onchange: v => {
-        settings.wes = v;
-        writeSettings();
+        annset.wes = v;
+        writeannset();
       },
-      format: v => v + "h",
+      format: v => v >= 0 ? v + "h" : "Off",
     },
     "Follow DND": {
-      value: settings.dnd,
+      value: annset.dnd,
       min: 0,
       max: 2,
       format: v => dndChoices[v],
       onchange: v => {
-        settings.dnd = v;
-        writeSettings();
+        annset.dnd = v;
+        writeannset();
       }
     },
     "Active": {
-      value: !!settings.act,
+      value: !!annset.act,
       min: 0,
       max: 1,
       onchange: v => {
-        settings.act = v;
-        writeSettings();
+        annset.act = v;
+        writeannset();
       },
     },
   });
