@@ -9,7 +9,7 @@
   }
 
   function checkAnnoy() {
-    settings = {
+    annset = {
       act: true,
       lsd: -1,
       nxt: 0,
@@ -22,44 +22,44 @@
     };
 
     file = require("Storage").readJSON(FILE, true) || {};
-    settings = Object.assign(settings, file);
+    annset = Object.assign(annset, file);
 
     date = Date(Date.now());
 
     // Check if we should start annoying according to schedule
-    if (date.getDate() != settings.lsd) {
+    if (date.getDate() != annset.lsd) {
       // hasn't been started today
       isWeekend = (date.getDate() == 0 || date.getDate() == 6);
-      startHour = isWeekend ? settings.wes : settings.wds;
+      startHour = isWeekend ? annset.wes : annset.wds;
 
-      // If starthour is negative (shown as "Off" in settings) don't start.
+      // If starthour is negative (shown as "Off" in annset) don't start.
       if (date.getHours() >= startHour || startHour >= 0) {
-        settings.act = true;
-        settings.lsd = date.getDate();
+        annset.act = true;
+        annset.lsd = date.getDate();
       }
     }
 
     // Check if we should annoy
-    if (settings.act) {
+    if (annset.act) {
       timestampSeconds = Math.round(date.getTime() / 1000);
-      if (timestampSeconds > settings.nxt) {
+      if (timestampSeconds > annset.nxt) {
         // Time to annoy and set next annoyance
         quietMode = (require("Storage").readJSON("setting.json", true) || {}).quiet || 0;
 
-        if (settings.dnd >= quietMode) {
-          require("buzz").pattern(settings.buz);
+        if (annset.dnd >= quietMode) {
+          require("buzz").pattern(annset.buz);
         }
 
-        delay = Math.round(60 * (settings.itv + Math.random() * settings.itr)); // For testing this was changed to seconds, add * 60 for prod
-        settings.nxt = timestampSeconds + delay;
+        delay = Math.round(60 * (annset.itv + Math.random() * annset.itr)); // For testing this was changed to seconds, add * 60 for prod
+        annset.nxt = timestampSeconds + delay;
       }
     }
-    require("Storage").writeJSON(FILE, settings);
+    require("Storage").writeJSON(FILE, annset);
   }
   setInterval(checkAnnoy, REFRESHPERIOD);
 
-  settings = require("Storage").readJSON(FILE, true);
-  if (settings.act) {
+  annset = require("Storage").readJSON(FILE, true);
+  if (annset.act) {
     WIDGETS["annoy"] = {
       area: "tl",
       width: 24,
