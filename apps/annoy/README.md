@@ -14,6 +14,6 @@ Use cases:
 - Active (On/Off): Another way to activate/deactivate the reminder
 - Interval (1-30min): Static interval in which the app will buzz
 - Add Randomness (0-30min): Randomly adds a time from 0min to the selected value to make it more interesting. Setting to 0 deactivates it.
-- Weekday Start Hour (0-23h): Hour at which to start annoying Mo-Fr
-- Weekend Start Hour (0-23h): Hour at which to start annoying Sat&Sun
+- Weekday Start Hour (Off/0-23h): Hour at which to start annoying Mo-Fr, Off: Don't start Weekdays
+- Weekend Start Hour (Off/0-23h): Hour at which to start annoying Sat&Sun, Off: Don't start Weekends
 - Follow DND (Always/Alarm/Never): Always: Does not buzz if Bangle is in DND mode, Alarm: Like "Always" but also buzzes when in Alarm mode, Never: Always buzzes
