@@ -16,4 +16,4 @@ Use cases:
 - Add Randomness (0-30min): Randomly adds a time from 0min to the selected value to make it more interesting. Setting to 0 deactivates it.
 - Weekday Start Hour (0-23h): Hour at which to start annoying Mo-Fr
 - Weekend Start Hour (0-23h): Hour at which to start annoying Sat&Sun
-- Follow DND (Always/Alarm/Never): __Warning: Not implemented yet!__ Always: Does not buzz if Bangle is in DND mode, Alarm: Like "Always" but also buzzes when in DND/Alarm, Never: Always buzzes
+- Follow DND (Always/Alarm/Never): Always: Does not buzz if Bangle is in DND mode, Alarm: Like "Always" but also buzzes when in Alarm mode, Never: Always buzzes
